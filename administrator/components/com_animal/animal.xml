@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.1" method="upgrade">
+	<name>com_animal</name>
+	<author>Wayne Lin</author>
+	<creationDate>April 2014</creationDate>
+	<version>0.1.0</version>
+	<description>COM_LOSER_XML_DESCRIPTION</description>
+	<administration>
+		<menu>com_animal</menu>
+	</administration>
+</extension>
+
