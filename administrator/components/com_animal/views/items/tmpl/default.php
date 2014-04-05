@@ -1,3 +1,4 @@
+animal Component Items
 <?php
 /**
  * Part of JoomlaHow project. 
@@ -6,8 +7,5 @@
  * @license    GNU General Public License version 2 or later; see LICENSE
  */
 
-defined('_JEXEC') or die;
+var_dump($this->items); ?>
 
-$controller = JControllerLegacy::getInstance('animal');
-$controller -> execute(JFactory::getApplication()->input->get('task'));
-$controller->redirect();
