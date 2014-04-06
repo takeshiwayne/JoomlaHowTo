@@ -31,7 +31,16 @@ class AnimalViewItems extends JViewLegacy
 	{
 		$this->items = $this->get('items');
 
+		$this->setToolBar();
+
 		return parent::display($tpl);
+	}
+
+	public function setToolbar()
+	{
+		JToolbarHelper::title('this is item list');
+
+		JToolbarHelper::addNew('item.add');
 	}
 
 }

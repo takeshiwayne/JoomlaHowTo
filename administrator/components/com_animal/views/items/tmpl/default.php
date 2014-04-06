@@ -1,11 +1,11 @@
-animal Component Items
-<?php
-/**
- * Part of JoomlaHow project. 
- *
- * @copyright  Copyright (C) 2011 - 2014 SMS Taiwan, Inc. All rights reserved.
- * @license    GNU General Public License version 2 or later; see LICENSE
- */
-
-var_dump($this->items); ?>
-
+<form action="<?php echo JRoute::_('index.php'); ?>"
+	method="post"
+	name="adminForm"
+	id="adminForm">
+	<?php
+	var_dump($this->items);
+	?>
+	<input type="hidden" name="option" value="com_blog"/>
+	<input type="hidden" name="task" value=""/>
+	<?php echo JHtml::_('form.token'); ?>
+</form>
