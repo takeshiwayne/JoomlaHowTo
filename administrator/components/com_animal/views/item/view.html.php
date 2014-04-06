@@ -36,6 +36,18 @@ class AnimalViewItem extends JViewLegacy
 		$this->form = $this->get('Form');
 		$this->item = $this->get('Item');
 
+		$this->setToolBar();
+
 		return parent::display($tpl);
+	}
+
+	public function setToolBar()
+	{
+		JToolbarHelper::title('edit aniaml item');
+
+		JToolbarHelper::apply('item.apply');
+		JToolbarHelper::save('item.save');
+		JToolbarHelper::save2new('item.save2new');
+		JToolbarHelper::cancel('item.cancel');
 	}
 }
