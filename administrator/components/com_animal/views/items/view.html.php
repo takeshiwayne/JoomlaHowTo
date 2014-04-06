@@ -27,9 +27,19 @@ class AnimalViewItems extends JViewLegacy
 	 *
 	 * @return  mixed
 	 */
+
+	/**
+	 * Property pagination.
+	 *
+	 * @var
+	 */
+	protected $pagination;
+
 	public function display($tpl = null)
 	{
 		$this->items = $this->get('items');
+
+		$this->pagination = $this->get('pagination');
 
 		$this->setToolBar();
 
@@ -41,6 +51,8 @@ class AnimalViewItems extends JViewLegacy
 		JToolbarHelper::title('this is item list');
 
 		JToolbarHelper::addNew('item.add');
+		JToolbarHelper::editList('item.edit');
+		JToolbarHelper::deleteList('Are you sure?', 'items.delete');
 	}
 
 }
