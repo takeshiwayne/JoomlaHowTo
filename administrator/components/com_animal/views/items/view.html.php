@@ -35,9 +35,22 @@ class AnimalViewItems extends JViewLegacy
 	 */
 	protected $pagination;
 
+	/**
+	 * @var object
+	 */
+	protected $state;
+
+	/**
+	 * display
+	 *
+	 * @param null $tpl
+	 *
+	 * @return  mixed
+	 */
 	public function display($tpl = null)
 	{
 		$this->items = $this->get('items');
+		$this->state = $this->get('state');
 
 		$this->pagination = $this->get('pagination');
 
@@ -46,6 +59,11 @@ class AnimalViewItems extends JViewLegacy
 		return parent::display($tpl);
 	}
 
+	/**
+	 * setToolbar
+	 *
+	 * @return  void
+	 */
 	public function setToolbar()
 	{
 		JToolbarHelper::title('this is item list');

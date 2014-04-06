@@ -13,13 +13,40 @@
  */
 class AnimalModelItems extends JModelList
 {
+	/**
+	 * @param array $config
+	 */
+	public function __construct($config = array())
+	{
+		if (empty($config['filter_fields']))
+		{
+			$config['filter_fields'] = array(
+				'id', 'a.id',
+				'name', 'a.name',
+				'species', 'a.species',
+				'size', 'a.size',
+				'age', 'a.age',
+			);
+		}
+
+		parent::__construct($config);
+	}
+
+	/**
+	 * getListQuery
+	 *
+	 * @return  JDatabaseQuery
+	 */
 	public function getListQuery()
 	{
 		$db = $this->getDbo();
 		$query = $db->getQuery(true);
+		$orderCol = $this->getState('list.ordering', 'a.id');
+		$orderDir = $this->getState('list.direction', 'asc');
 
 		$query->select('a.*')
-			  ->from('#__animal AS a');
+			  ->from('#__animal AS a')
+		      ->order($db->escape($orderCol . ' ' . $orderDir));
 
 		return $query;
 	}

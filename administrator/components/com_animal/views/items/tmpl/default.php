@@ -1,3 +1,9 @@
+<?php
+
+$orderCol = $this->state->get('list.ordering');
+$orderDir = $this->state->get('list.direction');
+?>
+
 <form action="<?php echo JRoute::_('index.php'); ?>"
 	method="post"
 	name="adminForm"
@@ -12,11 +18,11 @@
 		<thead>
 		<tr>
 			<th><?php echo JHtml::_('grid.checkall'); ?></th>
-			<th>id</th>
-			<th>name</th>
-			<th>species</th>
-			<th>size</th>
-			<th>age</th>
+			<th><?php echo JHtml::_('grid.sort', 'id', 'a.id', $orderDir, $orderCol); ?></th>
+			<th><?php echo JHtml::_('grid.sort', 'name', 'a.name', $orderDir, $orderCol); ?></th>
+			<th><?php echo JHtml::_('grid.sort', 'species', 'a.species', $orderDir, $orderCol); ?></th>
+			<th><?php echo JHtml::_('grid.sort', 'size', 'a.size', $orderDir, $orderCol); ?></th>
+			<th><?php echo JHtml::_('grid.sort', 'age', 'a.age', $orderDir, $orderCol); ?></th>
 		</tr>
 		</thead>
 		<tfoot>
@@ -53,8 +59,10 @@
 		<?php endforeach; ?>
 		</tbody>
 	</table>
-	<input type="hidden" name="option" value="com_blog"/>
+	<input type="hidden" name="option" value="com_animal"/>
 	<input type="hidden" name="boxchecked" value="0" />
 	<input type="hidden" name="task" value=""/>
+	<input type="hidden" name="filter_order" value="<?php echo $orderCol; ?>" />
+	<input type="hidden" name="filter_order_Dir" value="<?php echo $orderDir; ?>" />
 	<?php echo JHtml::_('form.token'); ?>
 </form>
