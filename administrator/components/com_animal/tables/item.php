@@ -11,7 +11,7 @@
  *
  * @since 1.0
  */
-class AnimalTableAnimals extends JTable
+class AnimalTableItem extends JTable
 {
 	public function __construct($db)
 	{

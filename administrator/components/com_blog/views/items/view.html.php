@@ -39,15 +39,16 @@ class BlogViewItems extends JViewLegacy
 
 	/**
 	 * Set page title and toolbar
+	 *
+	 * @return void
 	 */
-
 	public function setToolBar()
 	{
 		JToolbarHelper::title('Edit blog item');
 
 		JToolbarHelper::addNew('item.add');
 		JToolbarHelper::editList('item.edit');
-		JToolbarHelper::deleteList('Are you sure?'.'items.delete');
+		JToolbarHelper::deleteList('Are you sure?', 'items.delete');
 
 
 	}

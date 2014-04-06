@@ -25,7 +25,7 @@ class AnimalModelItem extends JModelAdmin
 
 		$key = $this->option . '.' . $this->name . '.form';
 
-		$form = $this->loadForm($key, $this->name, $optoins);
+		$form = $this->loadForm($key, $this->name, $options);
 
 		return $form;
 	}
@@ -43,7 +43,7 @@ class AnimalModelItem extends JModelAdmin
 
 		$data = $app->getUserState($userStateKey, array());
 
-		return empty($data ? this->getItem() : $data);
+		return empty($data) ? $this->getItem() : $data;
 	}
 
 	/**
@@ -55,14 +55,14 @@ class AnimalModelItem extends JModelAdmin
 	 *
 	 * @return  JTable
 	 */
-	public function getTable($name = 'Item', $prefix = 'AnimalTable', $option = array())
+	public function getTable($name = 'Item', $prefix = 'AnimalTable', $options = array())
 	{
 		if('' === $name)
 		{
 			$name = $this->getName();
 		}
 
-		return parent::getTable($name, $prefix, $optios);
+		return parent::getTable($name, $prefix, $options);
 	}
 
 	/**
